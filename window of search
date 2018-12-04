@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+from tkinter import *
+#using tkinter;
+import tkinter.messagebox as messagebox
+url = 'http://www.google.com'
+#using messagebox;
+class Application(Frame):#using frame
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+        
+
+    def createWidgets(self):
+        self.nameInput = Entry(self,width=67)
+        self.nameInput.pack()
+        self.alertButton = Button(self, text='Search', width=67, height=0, command=self.hello, fg="#FFFFFF", bg="#000000")
+        self.alertButton.pack()
+        #self.image = Image(jpg, name=None, cnf="C:\Users\Jane\Desktop\untitled.jpg")
+
+
+    def hello(self):
+        name = self.nameInput.get() or 'world'
+        messagebox.showinfo('Message', 'Hello, %s' % name)
+
+app = Application()
+# windows title:
+app.master.minsize(1000,800)
+app.master.maxsize(1500, 1300)
+app.master.title('System')
+app.master["bg"] = "#FFFFFF"
+# loop:
+app.mainloop()
